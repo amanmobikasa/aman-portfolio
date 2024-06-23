@@ -115,6 +115,15 @@ export const TypewriterEffectSmooth = ({
   const markerRef = useRef<any>()
   const [hidden, setHidden] = useState<boolean | undefined>(false)
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      markerRef.current?.classList.add('ml-[2rem]');
+      setHidden(true);
+    }, 3000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
 
   const wordsArray = words.map((word) => {
@@ -145,16 +154,7 @@ export const TypewriterEffectSmooth = ({
     );
   };
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      markerRef.current?.classList.add('ml-[2rem]');
-      setHidden(true);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+  
 
   return (
     <div className={cn("flex space-x-1 my-6", className)}>
