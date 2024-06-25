@@ -7,7 +7,7 @@ type BasicLayoutProps = {
 function BasicLayout({children} : BasicLayoutProps) {
   return (
     <>
-        <section className='w-full relative overflow-hidden'>
+        <section className='w-full relative'>
             <div>
                 <div>
                     {children}
