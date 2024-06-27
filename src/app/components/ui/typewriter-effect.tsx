@@ -3,6 +3,7 @@
 import { cn } from "@/app/utils/cn";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { FlipWords } from "./flip-words";
 
 // export const TypewriterEffect = ({
 //   words,
@@ -104,8 +105,9 @@ export const TypewriterEffectSmooth = ({
   cursorClassName,
 }: {
   words: {
-    text: string;
+    text: string | string[];
     className?: string;
+    anotherComponent ?: boolean
   }[];
   className?: string;
   cursorClassName?: string;
@@ -126,19 +128,32 @@ export const TypewriterEffectSmooth = ({
   }, []);
 
 
+  // const wordsArray = words.map((word) => {
+  //   return {
+  //     ...word,
+  //     text: Array.isArray(word?.text) ? "" : word.text.split(""),
+  //   };
+  // });
+
   const wordsArray = words.map((word) => {
     return {
       ...word,
-      text: word.text.split(""),
+      text: Array.isArray(word?.text) ? word.text : word.text.split(""),
     };
   });
+
+  // console.log("wordarray", wordsArray);
+
   const renderWords = () => {
     return (
       <div>
-        {wordsArray.map((word, idx) => {
+        {wordsArray?.map((word, idx) => {
+          if(word?.anotherComponent){
+            return <FlipWords words={word.text} className={word.className}/>
+          }
           return (
             <div key={`word-${idx}`} className="inline-block">
-              {word.text.map((char, index) => (
+              {word?.text?.map((char, index) => (
                 <span
                   key={`char-${index}`}
                   className={cn(`text-white text-[9.8rem] space-y-4 font-ubuntu`, word.className)}

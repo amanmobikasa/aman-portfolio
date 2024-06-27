@@ -16,9 +16,9 @@ interface SocialMediaComponentProps {
 function SocialMediaComponent({ socialMediaData }: SocialMediaComponentProps) {
   return (
     <>
-      <BasicLayout>
-        <div className="w-3/12 mx-auto h-fit z-30">
-          <div className="w-full flex justify-evenly gap-x-5 ">
+      <div className="">
+        <div className="w-4/12 mx-auto h-fit z-30">
+          <div className="w-full flex justify-evenly gap-x-[3rem] ">
             {/* item 1 */}
             {socialMediaData.length > 0 &&
               socialMediaData?.map((item, index) => {
@@ -49,7 +49,7 @@ function SocialMediaComponent({ socialMediaData }: SocialMediaComponentProps) {
               })}
           </div>
         </div>
-      </BasicLayout>
+      </div>
     </>
   );
 }

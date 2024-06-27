@@ -53,7 +53,7 @@ export function MultiStepLoaderDemo({children, onClose, onOpen} : MultiStepLoade
   };
 
   return (
-    <div className="w-full h-[100vh] flex items-center justify-center bg-[#222] bg-opacity-75 backdrop-blur-xl  absolute top-0 left-0 z-[100] text-white overflow-hidden">
+    <div className="w-full h-[100vh] bg-[#222] bg-opacity-75 backdrop-blur-xl  absolute top-0 left-0 z-[100] text-white overflow-y-auto overflow-x-hidden">
       <div className="blur-none z-10">
       {children}
       </div>
