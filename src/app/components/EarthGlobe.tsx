@@ -10,7 +10,7 @@ type EarthGlobeProps = {
 
 function EarthGlobe({scene, children} : EarthGlobeProps) {
   return (
-    <div className='relative h-[100vh] w-full'>
+    <div className='relative h-dvh w-full'>
     <Spline scene={scene ?? "https://prod.spline.design/E33gQaRqf1eBnuMv/scene.splinecode"} >
       {children}
     </Spline>
