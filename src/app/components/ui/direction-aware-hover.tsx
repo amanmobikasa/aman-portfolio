@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "../../utils/cn";
 
@@ -12,7 +12,7 @@ export const DirectionAwareHover = ({
   imageClassName,
   className,
 }: {
-  imageUrl: string;
+  imageUrl: StaticImageData;
   children: React.ReactNode | string;
   childrenClassName?: string;
   imageClassName?: string;
@@ -76,10 +76,10 @@ export const DirectionAwareHover = ({
           whileHover={direction}
           exit="exit"
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
+          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500 rounded-lg" />
           <motion.div
             variants={variants}
-            className="h-full w-full relative bg-gray-50 dark:bg-black"
+            className="h-full w-full relative bg-transparent dark:bg-black  flex items-center justify-center"
             transition={{
               duration: 0.2,
               ease: "easeOut",
@@ -88,11 +88,12 @@ export const DirectionAwareHover = ({
             <Image
               alt="image"
               className={cn(
-                "h-full w-full object-cover scale-[1.15]",
+                "h-[10rem] my-auto object-bottom w-full aspect-square object-contain grayscale hover:grayscale-0 scale-[1.15]",
                 imageClassName
               )}
               width="1000"
               height="1000"
+              loading="lazy"
               src={imageUrl}
             />
           </motion.div>

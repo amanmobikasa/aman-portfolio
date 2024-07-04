@@ -3,6 +3,7 @@
 import { DirectionAwareHoverDemo } from "@/app/common/skills-cards";
 import { cn } from "../../utils/cn";
 import React, { useEffect, useState } from "react";
+import { StaticImageData } from "next/image";
 
 export const InfiniteMovingCards = ({
   items,
@@ -14,7 +15,7 @@ export const InfiniteMovingCards = ({
   items: {
     quote: string;
     name: string;
-    image: string;
+    image: StaticImageData;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
