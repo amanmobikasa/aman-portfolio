@@ -207,7 +207,7 @@ export const TypewriterEffectSmooth = ({
         }}
         hidden={hidden}
         className={cn(
-          "block rounded-sm w-[4px] h-4 sm:h-6 xl:h-[28rem] ml-[1rem] bg-blue-500",
+          "block rounded-sm w-[4px] h-4 sm:h-6 xl:h-[28rem] ml-[1rem] bg-yellow-500",
           cursorClassName
         )}
       ></motion.span>

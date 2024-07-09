@@ -30,7 +30,7 @@ export default function Home() {
     },
     {
       text: ["Aman", "अमन", "男", "阿曼", "мужчина"],
-      className: "text-blue-500 dark:text-blue-500 animate-pulse text-[10rem]",
+      className: "text-blue-600 dark:text-blue-500 animate-pulse text-[10rem]",
       anotherComponent : true
     },
   ];

@@ -5,6 +5,7 @@ import { TextRevealCardPreview } from "../common/text-reveal";
 import { MoveRight } from "lucide-react";
 import { NavbarJson } from "../json/navbar-json";
 import SkillSets from "./skill-set";
+import { SignupFormDemo } from "./contact-us-form";
 
 function MenuWrapper() {
   const [renderElem, setRenderElem] = useState("")
@@ -24,7 +25,7 @@ function MenuWrapper() {
   return (
     <>
       <div className="w-11/12 mx-auto relative h-fit my-[2rem]">
-        {renderElem == "Skill Set" ? <SkillSets /> : renderElem == "Contact" ? <h1>render the contact page</h1> : renderElem == "Portfolio" ? <h1>Render the portfolio heading</h1> : <div className="w-full h-fit" >
+        {renderElem == "Skill Set" ? <SkillSets /> : renderElem == "Contact" ? <SignupFormDemo /> : renderElem == "Portfolio" ? <h1>Render the portfolio heading</h1> : <div className="w-full h-fit" >
           <SparklesPreview>
             <FlipWordsDemo wordsArray={wordsArray} />
           </SparklesPreview>
