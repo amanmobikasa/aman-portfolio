@@ -14,6 +14,8 @@ import { AnimatedTooltip } from "./components/ui/animated-tooltip";
 import { FolderGit2, SquareUserRound, UserRound } from "lucide-react";
 import  ThreeDCardDemo  from "./common/3DCards";
 import MenuWrapper from "./components/menu-wrapper";
+import { TracingBeamDemo } from "./components/content-wrapper";
+import AboutMe from "./components/about-me";
 const ProjectPopupWrapper = React.lazy(() => import('./components/project-popup-wrapper'));
 
 export default function Home() {
@@ -54,7 +56,9 @@ export default function Home() {
     <>
       {showModal && (
         <MultiStepLoaderDemo
-          children={projectModal ? <Suspense fallback={"loading..."}><ProjectPopupWrapper/></Suspense> : aboutModal ? <h1>Render the about modal here</h1> : <MenuWrapper />}
+          children={projectModal ? <Suspense fallback={"loading..."}><ProjectPopupWrapper/></Suspense> : aboutModal ? <Suspense fallback={"loading..."}>
+            <AboutMe />
+            </Suspense> : <MenuWrapper />}
           onClose={(loading) => {setShowModal(false); setProjectModal(false); setAboutModal(false)}}
           onOpen={showModal}
         />

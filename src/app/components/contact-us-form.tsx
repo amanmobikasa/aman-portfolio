@@ -24,7 +24,7 @@ export function SignupFormDemo() {
   ]
 
   // handle the input changes events.
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setInputState({ ...inputState, [name]: value });
   }
@@ -67,7 +67,7 @@ export function SignupFormDemo() {
         <div key={index} className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label className="text-white" htmlFor={item?.input_name}>{item?.label_name}</Label>
-            <Input onChange={handleInputChange} id={item?.input_name} name={item?.input_name} required={item?.required} className="bg-transparent border-white !border-[0.01rem] caret-white text-white" placeholder={item?.placeholder_text} type={item?.input_type} />
+            <Input onChange={handleInputChange} id={item?.input_name} name={item?.input_name} required={item?.required} className="bg-transparent caret-white text-white" placeholder={item?.placeholder_text} type={item?.input_type} />
           </LabelInputContainer>
         </div>
           </>
@@ -112,3 +112,4 @@ const LabelInputContainer = ({
     </div>
   );
 };
+                                                                       
