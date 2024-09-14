@@ -145,8 +145,9 @@ export const TypewriterEffectSmooth = ({
   // console.log("wordarray", wordsArray);
 
   const renderWords = () => {
+   
     return (
-      <div>
+      <div className="space-x-1">
         {wordsArray?.map((word, idx) => {
           if(word?.anotherComponent){
             return <FlipWords words={word.text} className={word.className}/>
@@ -156,7 +157,7 @@ export const TypewriterEffectSmooth = ({
               {word?.text?.map((char, index) => (
                 <span
                   key={`char-${index}`}
-                  className={cn(`text-white text-[9.8rem] space-y-4 font-ubuntu`, word.className)}
+                  className={cn(`text-white text-[2.5rem] lg:text-[9.8rem] space-y-7 font-ubuntu`, word.className)}
                 >
                   {char}
                 </span>
@@ -172,9 +173,9 @@ export const TypewriterEffectSmooth = ({
   
 
   return (
-    <div className={cn("flex space-x-1 my-6", className)}>
+    <div className={cn("flex space-x-1  lg:my-6", className)}>
       <motion.div
-        className="overflow-hidden pb-2"
+        className="pb-2"
         initial={{
           width: "0%",
         }}

@@ -16,9 +16,9 @@ interface SocialMediaComponentProps {
 function SocialMediaComponent({ socialMediaData }: SocialMediaComponentProps) {
   return (
     <>
-      <div className="">
-        <div className="w-4/12 mx-auto h-fit z-30">
-          <div className="w-full flex justify-evenly gap-x-[3rem] ">
+      <div className="w-full mx-auto h-fit z-30">
+        <div className="w-full">
+          <div className="w-full flex justify-between gap-x-3 lg:gap-x-[3rem] ">
             {/* item 1 */}
             {socialMediaData.length > 0 &&
               socialMediaData?.map((item, index) => {

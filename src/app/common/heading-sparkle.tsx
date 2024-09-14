@@ -8,15 +8,15 @@ interface SparklesPreviewProps {
 
 export function SparklesPreview({children} : SparklesPreviewProps) {
   return (
-    <div className="h-[10rem] origin-center w-full bg-transparent    flex flex-col items-center justify-center mt-[6rem] rounded-md">
-        <div className="mb-[2rem]">
+    <div className="xl:h-[10rem] h-[2rem] origin-center w-full bg-transparent  flex flex-col items-center justify-center mt-[6rem] rounded-md">
+        <div className="xl:mb-[2rem] mb-3 md:mb-4 lg:mb-6">
       {children}
         </div>
-      <div className="w-6/12 h-20 relative">
+      <div className="xl:w-6/12 w-full mx-auto xl:h-20 h-10 relative">
         {/* Gradients */}
-        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+        <div className="absolute sm:inset-x-20 inset-x-0 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent xl:h-[5px] h-[3px] w-2/4 blur-sm " />
         <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
         {/* Core component */}
         <SparklesCore

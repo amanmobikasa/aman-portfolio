@@ -35,16 +35,18 @@ function MenuWrapper() {
                 NavbarJson?.map((nav: any, index: number) => {
                   return (
                     <>
-                      <li key={index} className="flex items-center justify-center w-6/12 mx-auto">
+                      <li key={index} className="flex items-center justify-center xl:w-6/12 w-full mx-auto gap-x-3 md:gap-x-4 lg:gap-x-5">
                         <div>
-                          <MoveRight className="h-10 w-10" />
+                          <MoveRight className="xl:h-16 xl:w-16 h-8 w-8 md:h-12 md:w-12  animate-bounce-custom" />
                         </div>
+                        <div>
                         <TextRevealCardPreview
                           onHandleClick={handleClickNavigation}
                           innerRevealText={nav?.text}
                           innerText={nav?.innerRevealText}
                           link = {nav?.link}
                         ></TextRevealCardPreview>
+                        </div>
                       </li>
                     </>
                   );

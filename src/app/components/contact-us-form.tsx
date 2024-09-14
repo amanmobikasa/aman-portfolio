@@ -40,8 +40,8 @@ export function SignupFormDemo() {
           </SparklesPreview>
     </div>
     <div className="w-full mt-[3rem]">
-    <div className="max-w-lg w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input border-[0.01rem] borer-gray-200 bg-transparent dark:bg-black">
-      <p className="text-white text-sm max-w-sm mt-2 dark:text-neutral-300 font-ubuntu">
+    <div className="max-w-lg w-full mx-auto rounded-lg  md:rounded-2xl p-4 md:p-8 shadow-input  border-[0.01rem] borer-gray-200 bg-transparent dark:bg-black">
+      <p className="text-white text-sm max-w-sm mt-2 dark:text-neutral-300 ">
         Feel free to send me a message using the form below. I will get back to you as soon as possible.
       </p>
 
@@ -78,7 +78,7 @@ export function SignupFormDemo() {
           className="bg-gradient-to-br relative font-ubuntu group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
         >
-          Send Message &rarr;
+          Send Message <span className="animate-bounce-custom">&rarr;</span>
           <BottomGradient />
         </button>
 

@@ -67,7 +67,7 @@ export function MultiStepLoaderDemo({children, onClose, onOpen} : MultiStepLoade
           onMouseDown={handleClose}
         >
           <AnimatedTooltip item={{id : 1, name : "Close"}}>
-          <X className="h-10 w-10 text-white" />
+          <X className="xl:h-10 xl:w-10 h-6 w-6 text-white" />
           </AnimatedTooltip>
         </motion.button>
       )}

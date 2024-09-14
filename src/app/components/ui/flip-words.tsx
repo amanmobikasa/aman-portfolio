@@ -27,7 +27,6 @@ export const FlipWords = ({
         startAnimation();
       }, duration);
   }, [isAnimating, duration, startAnimation]);
-
   return (
     <AnimatePresence
       onExitComplete={() => {
@@ -59,7 +58,7 @@ export const FlipWords = ({
           position: "absolute",
         }}
         className={cn(
-          "z-10 inline-block relative text-left text-white px-2",
+          "z-10 inline-block relative text-left text-white px-2 pt-2 lg:pt-0" ,
           className
         )}
         key={currentWord}

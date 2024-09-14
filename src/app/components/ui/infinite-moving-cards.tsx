@@ -88,9 +88,9 @@ export const InfiniteMovingCards = ({
         )}
       >
         {items.map((item, idx) => (
-        <div key={idx}>
+        <li className="grayscale hover:grayscale-0" key={idx}>
             <DirectionAwareHoverDemo itemsObj={item} />
-        </div>
+        </li>
         ))}
       </ul>
     </div>

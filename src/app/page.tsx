@@ -12,16 +12,18 @@ import { socialMediaJson } from "./json/social-media-json";
 import ButtonCommon from "./components/button-common";
 import { AnimatedTooltip } from "./components/ui/animated-tooltip";
 import { FolderGit2, SquareUserRound, UserRound } from "lucide-react";
-import  ThreeDCardDemo  from "./common/3DCards";
+import ThreeDCardDemo from "./common/3DCards";
 import MenuWrapper from "./components/menu-wrapper";
 import { TracingBeamDemo } from "./components/content-wrapper";
 import AboutMe from "./components/about-me";
-const ProjectPopupWrapper = React.lazy(() => import('./components/project-popup-wrapper'));
+const ProjectPopupWrapper = React.lazy(
+  () => import("./components/project-popup-wrapper")
+);
 
 export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [projectModal, setProjectModal] = useState<boolean>(false)
-  const [aboutModal, setAboutModal] = useState<boolean>(false)
+  const [projectModal, setProjectModal] = useState<boolean>(false);
+  const [aboutModal, setAboutModal] = useState<boolean>(false);
 
   const words = [
     {
@@ -31,9 +33,10 @@ export default function Home() {
       text: "I'm",
     },
     {
-      text: ["Aman", "अमन", "男", "阿曼", "мужчина"],
-      className: "text-blue-600 dark:text-blue-500 animate-pulse text-[10rem]",
-      anotherComponent : true
+      text: ["Aman", "अमन", "男", "阿曼"],
+      className:
+        "text-blue-600 dark:text-blue-500 animate-pulse text-[4rem] lg:text-[10rem]",
+      anotherComponent: true,
     },
   ];
 
@@ -43,23 +46,37 @@ export default function Home() {
   };
 
   const openProjectModal = () => {
-    setShowModal(true)
-    setProjectModal(true)
-  }
+    setShowModal(true);
+    setProjectModal(true);
+  };
 
   const openAboutModal = () => {
-    setShowModal(true)
-    setAboutModal(true)
-  }
+    setShowModal(true);
+    setAboutModal(true);
+  };
 
   return (
     <>
       {showModal && (
         <MultiStepLoaderDemo
-          children={projectModal ? <Suspense fallback={"loading..."}><ProjectPopupWrapper/></Suspense> : aboutModal ? <Suspense fallback={"loading..."}>
-            <AboutMe />
-            </Suspense> : <MenuWrapper />}
-          onClose={(loading) => {setShowModal(false); setProjectModal(false); setAboutModal(false)}}
+          children={
+            projectModal ? (
+              <Suspense fallback={"loading..."}>
+                <ProjectPopupWrapper />
+              </Suspense>
+            ) : aboutModal ? (
+              <Suspense fallback={"loading..."}>
+                <AboutMe />
+              </Suspense>
+            ) : (
+              <MenuWrapper />
+            )
+          }
+          onClose={(loading) => {
+            setShowModal(false);
+            setProjectModal(false);
+            setAboutModal(false);
+          }}
           onOpen={showModal}
         />
       )}
@@ -71,21 +88,33 @@ export default function Home() {
         <div className="">
           <TypewriterEffectSmoothDemo wordArray={words} />
         </div>
-        <div className="absolute bottom-[2rem] right-0 left-0 mx-auto z-10 flex justify-between  w-full  items-center">
-          <div className="w-4/12 mx-auto">
-          <AnimatedTooltip item={{ id: 1, name: "About Me" }}>
-            <ButtonCommon onClick={openAboutModal} className="w-full" iconJsx={<SquareUserRound  className="h-5 w-5" />}>About Me</ButtonCommon>
-          </AnimatedTooltip>
+        <div className="absolute bottom-[2rem] right-0 left-0 mx-auto z-10 flex justify-between w-full lg:w-11/12  items-center">
+          <div className="lg:w-4/12 w-4/12 mx-auto">
+            <AnimatedTooltip item={{ id: 1, name: "About Me" }}>
+              <ButtonCommon
+                onClick={openAboutModal}
+                className="w-full"
+                iconJsx={<SquareUserRound className="h-5 w-5" />}
+              >
+                About Me
+              </ButtonCommon>
+            </AnimatedTooltip>
           </div>
-          <SocialMediaComponent socialMediaData={socialMediaJson} />
+          <div className="">
+            <SocialMediaComponent socialMediaData={socialMediaJson} />
+          </div>
           <div className="w-4/12 mx-auto flex justify-end">
-          <AnimatedTooltip item={{ id: 1, name: "Projects" }}>
-            <ButtonCommon onClick={openProjectModal} className="w-full" iconJsx={<FolderGit2 className="h-5 w-5" />}>Projects</ButtonCommon>
-          </AnimatedTooltip>
+            <AnimatedTooltip item={{ id: 1, name: "Projects" }}>
+              <ButtonCommon
+                onClick={openProjectModal}
+                className="w-full"
+                iconJsx={<FolderGit2 className="h-5 w-5" />}
+              >
+                Projects
+              </ButtonCommon>
+            </AnimatedTooltip>
           </div>
-          <div>
-          </div>
-          
+          <div></div>
         </div>
       </BasicLayout>
     </>
