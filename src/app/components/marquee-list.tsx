@@ -12,7 +12,7 @@ import githubimg from '../../../public/assets/images/github-image.png'
 
 
 
-export function InfiniteMovingCardsDemo() {
+export const InfiniteMovingCardsDemo = React.memo(() => {
   return (
     <div className="h-[30rem] rounded-md flex flex-col antialiased bg-transparent dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative ">
       <InfiniteMovingCards
@@ -22,7 +22,7 @@ export function InfiniteMovingCardsDemo() {
       />
     </div>
   );
-}   
+}) 
 
 const testimonials = [
   {

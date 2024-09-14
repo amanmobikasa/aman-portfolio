@@ -33,7 +33,7 @@ function ButtonCommon({
         onClick={onClick}
         onMouseDown={onMouseDown}
         disabled={disabled}
-        className={`py-3 w-full px-8 z-10  bg-transparent text-white text-sm font-ubuntu font-[500] border-white border-[0.01rem] hover:text-blue-800  hover:border-blue-800 transition-colors hover:animate-pulse hover:border-dashed hover:shadow-lg shadow-blue-800 duration-500 delay-150 ease-in-out flex justify-center items-center gap-x-3 ` + className}
+        className={`lg:py-3 py-2 w-full px-4 lg:px-8 z-10  bg-transparent text-white text-xs lg:text-sm font-ubuntu font-[500] border-white border-[0.01rem] hover:text-blue-800  hover:border-blue-800 transition-colors hover:animate-pulse hover:border-dashed hover:shadow-lg shadow-blue-800 duration-500 delay-150 ease-in-out flex justify-center items-center gap-x-2 lg:gap-x-3 ` + className}
       >
         {innerText ?? children}
         <span>

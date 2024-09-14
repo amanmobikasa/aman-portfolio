@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { TextRevealCard } from "../components/ui/text-reveal-card";
-import Link from "next/link";
 
 interface TextRevealCardPreviewProps {
   innerText: string;

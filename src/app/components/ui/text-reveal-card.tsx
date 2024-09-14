@@ -67,7 +67,7 @@ export const TextRevealCard = ({
       onTouchMove={touchMoveHandler}
       ref={cardRef}
       className={cn(
-        " w-[40rem] rounded-lg p-8 relative overflow-hidden cursor-pointer",
+        " xl:w-[40rem] w-full rounded-lg xl:p-8 p-2 relative overflow-hidden cursor-pointer",
         className
       )}
     >
@@ -95,7 +95,7 @@ export const TextRevealCard = ({
             style={{
               textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
             }}
-            className="text-base sm:text-[4.5rem] py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-200"
+            className="text-[3rem] sm:text-[4.5rem] xl:text-[6rem] py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-200"
           >
             {text}
           </p>
@@ -111,7 +111,7 @@ export const TextRevealCard = ({
         ></motion.div>
 
         <div className=" overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
-          <p className="text-base sm:text-[4rem] py-10 font-bold bg-clip-text text-white bg-[#323238]">
+          <p className="text-[3rem] sm:text-[4rem] xl:text-[6rem] py-10 font-bold bg-clip-text text-white bg-[#323238]">
             {revealText}
           </p>
           <MemoizedStars />
