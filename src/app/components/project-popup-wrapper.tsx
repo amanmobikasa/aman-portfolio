@@ -9,17 +9,15 @@ function ProjectPopupWrapper() {
 
   return (
     <>
-    <div className='w-11/12 mx-auto relative h-fit mt-[4rem]'>
+    <div className='w-11/12 mx-auto relative h-fit mt-[1rem] md:mt-[2.5rem] xl:mt-[4rem]'>
     <div>
        <FlipWordsDemo  wordsArray={words}/>
     </div>
-        <div className='w-full grid grid-cols-3 gap-x-[3rem] justify-evenly mb-[4rem]'>
+        <div className='w-full grid-cols-1 md:grid-cols-2 grid xl:grid-cols-3 gap-[2rem] xl:gap-x-[3rem] justify-evenly mb-[1.5rem] md:mb-[2.5rem] xl:mb-[4rem]'>
             {
                 projectPopupJson?.length > 0 && projectPopupJson?.map((item, index)=>{
                     return <>
-                    <div key={index}>
-                     <ThreeDCardDemo data={item} />
-                    </div>
+                     <ThreeDCardDemo data={item} index={index} />
                     </>
                 })
             }

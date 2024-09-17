@@ -6,7 +6,6 @@ import { TypewriterEffectSmoothDemo } from "./components/CommonTypeWriter";
 import EarthGlobe from "./components/EarthGlobe";
 import Navbar from "./components/Navbar";
 import BasicLayout from "./layout/basiclayout";
-import { motion } from "framer-motion";
 import SocialMediaComponent from "./components/ui/social-media-component";
 import { socialMediaJson } from "./json/social-media-json";
 import ButtonCommon from "./components/button-common";
@@ -81,7 +80,7 @@ export default function Home() {
         />
       )}
       <BasicLayout>
-        <EarthGlobe scene="https://prod.spline.design/E33gQaRqf1eBnuMv/scene.splinecode"></EarthGlobe>
+        <EarthGlobe scene="https://prod.spline.design/y82pVsz1U1fSdpvZ/scene.splinecode"></EarthGlobe>
         <div className="absolute top-0 left-0 w-full bg-fixed ">
           <Navbar onOpen={openMenuPopup}></Navbar>
         </div>
