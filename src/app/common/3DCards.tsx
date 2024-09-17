@@ -17,15 +17,16 @@ interface ThreeDCardDemo{
         github_url ?: string,
         new_tagged ?: boolean
     }
+    index : number
 }
 
-export default function ThreeDCardDemo({data}:ThreeDCardDemo) {
+export default function ThreeDCardDemo({data, index}:ThreeDCardDemo) {
   return (
-    <CardContainer className="inter-var">
-      <CardBody className="bg-[#222] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[26rem] h-auto rounded-xl p-6 border  ">
+    <CardContainer className="inter-var" key={index}>
+      <CardBody className="bg-[#222] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto lg:w-[26rem] md:w-[22.3rem]  h-auto rounded-xl p-6 border  ">
         {data?.project_name &&<CardItem
           translateZ="50"
-          className="text-xl font-bold text-white"
+          className="text-xl font-bold text-white line-clamp-1"
         >
           {data?.project_name}
         </CardItem>}
@@ -63,7 +64,7 @@ export default function ThreeDCardDemo({data}:ThreeDCardDemo) {
           >
             Sign up
           </CardItem> */}
-          <ButtonCommon iconJsx={<MoveRight />} className="w-1/2 hover:bg-white hover:text-[#222]">Visit Now </ButtonCommon>
+          <ButtonCommon iconJsx={<MoveRight className="animate-bounce-custom" />} className="w-1/2 hover:bg-white hover:text-[#222]">Visit Now </ButtonCommon>
         </div>
       </CardBody>
     </CardContainer>
