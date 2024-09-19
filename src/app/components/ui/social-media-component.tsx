@@ -1,8 +1,7 @@
-import BasicLayout from "@/app/layout/basiclayout";
 import React from "react";
 import { motion } from "framer-motion";
-import { Linkedin } from "lucide-react";
 import { AnimatedTooltip } from "./animated-tooltip";
+import Link from "next/link";
 
 interface SocialMediaComponentProps {
   socialMediaData: {
@@ -10,6 +9,7 @@ interface SocialMediaComponentProps {
     name: string;
     icon: React.ReactNode;
     designation: string;
+    link : string;
   }[];
 }
 
@@ -40,8 +40,7 @@ function SocialMediaComponent({ socialMediaData }: SocialMediaComponentProps) {
                       className="cursor-pointer"
                     >
                       <AnimatedTooltip item={{ id: index, name: item?.name }}>
-                        {/* <Linkedin className="h-6 w-6 text-white hover:text-blue-800" /> */}
-                        {item?.icon}
+                        <Link href={item?.link} target="_" >{item?.icon}</Link>
                       </AnimatedTooltip>
                     </motion.div>
                   </>
