@@ -3,16 +3,11 @@ import React, { useState } from "react";
 import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
 import { cn } from "../utils/cn";
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
 import { SparklesPreview } from "../common/heading-sparkle";
 import { FlipWordsDemo } from "./heading-common";
 import { contactUsJson } from "../json/contact-us-json";
 
-export function SignupFormDemo() {
+export function SignupFormDemo({handleSubmitDataToDB, isLoading, errorMessage, successMessage} : {handleSubmitDataToDB : (e: React.FormEvent<HTMLFormElement>, formData : any) => void; isLoading : boolean; errorMessage : string; successMessage : string}) {
   const [inputState, setInputState] = useState([]);
   const wordsArray = [
     "Contact Us",
@@ -31,7 +26,11 @@ export function SignupFormDemo() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+    // console.log("Form submitted", inputState);
+    handleSubmitDataToDB(e, inputState);
+    if(successMessage){
+      setInputState([]);
+    }
   };
   return (<>
     <div className=''>   
@@ -75,14 +74,19 @@ export function SignupFormDemo() {
         }
 
         <button
+          disabled={successMessage ? true : isLoading ? true : false}
           className="bg-gradient-to-br relative font-ubuntu group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
         >
-          Send Message <span className="animate-bounce-custom">&rarr;</span>
+          
+          {isLoading ? "Sending Message..." : "Send Message"}<span className="animate-bounce-custom">&rarr;</span>
           <BottomGradient />
         </button>
 
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+        {errorMessage && <span className="text-red-500 text-center text-sm">{errorMessage}</span>}
+        {successMessage && <span className="text-green-500 text-center text-sm">{successMessage}</span>}
+
       </form>
     </div>
     </div>
