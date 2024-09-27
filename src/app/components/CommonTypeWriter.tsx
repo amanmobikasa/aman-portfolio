@@ -6,7 +6,7 @@ type TypewriterEffectSmoothDemoProps = {
     wordArray : {text : string | string[]}[]
 }
 
-export function TypewriterEffectSmoothDemo({wordArray} : TypewriterEffectSmoothDemoProps) {
+export default function TypewriterEffectSmoothDemo({wordArray} : TypewriterEffectSmoothDemoProps) {
  
   return (
     <>

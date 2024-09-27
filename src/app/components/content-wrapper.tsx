@@ -5,19 +5,24 @@ import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./ui/tracing-beam";
 import { CircleUser } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 
 
 export function TracingBeamDemo() {
+  const router = useRouter();
+
+
   return (
-    <TracingBeam className="px-6 ">
+    <TracingBeam className="px-6 scroll-smooth">
       <div className="max-w-2xl mx-auto antialiased pt-4 relative">
         {dummyContent.map((item, index) => (
-          <div key={`content-${index}`} className="mb-10">
-            <h2 className="bg-black text-white rounded-full text-xl w-fit px-6 py-2 mb-4 flex items-center gap-x-3 justify-center">
+          <div key={`content-${index}`} className="mb-16">
+            <button className="bg-black cursor-pointer text-white rounded-full text-xl w-fit px-6 py-2 mb-4 flex items-center gap-x-3 justify-center">
               {item.badge} <span>
                 {index === 0 && <div className="h-[1.8rem] w-[1.8rem] rounded-full"><CircleUser className="h-7" /></div>}
               </span>
-            </h2>
+            </button>
 
             <p className={twMerge("text-xl mb-4 font-ubuntu")}>
               {item.title}
@@ -26,13 +31,17 @@ export function TracingBeamDemo() {
               {item?.image && (
                 <Image
                   src={item.image}
-                  alt="blog thumbnail"
+                  alt={`${item?.title}-image`}
                   height="1000"
                   width="1000"
                   className="rounded-lg mb-10 object-cover"
+                  loading="lazy"
+                  quality={100}
                 />
               )}
+              <div id={item?.hashNavigation}>
               {item.description}
+              </div>
             </div>
           </div>
         ))}
@@ -59,7 +68,8 @@ const dummyContent = [
     ),
     badge: "About ME",
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=3540&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/assets/images/my-image-1.jpg",
+      hashNavigation : "about-me"
   },
   {
     title: "Lorem Ipsum Dolor Sit Amet",
@@ -75,6 +85,8 @@ const dummyContent = [
     ),
     badge: "My Passion",
     image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=3506&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/assets/images/my-image-2.png",
+      hashNavigation : "my-passion"
+
   },
 ];
