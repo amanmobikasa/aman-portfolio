@@ -1,23 +1,26 @@
 "use client";
 import React, { Suspense, useState } from "react";
+import dynamic from "next/dynamic";
 import { MultiStepLoaderDemo } from "./common/pop-over";
-// import { AnimatedTooltipPreview } from "./common/toptip-common";
-import { TypewriterEffectSmoothDemo } from "./components/CommonTypeWriter";
-import EarthGlobe from "./components/EarthGlobe";
-import Navbar from "./components/Navbar";
-import BasicLayout from "./layout/basiclayout";
-import SocialMediaComponent from "./components/ui/social-media-component";
+// import { TypewriterEffectSmoothDemo } from "./components/CommonTypeWriter";
+const TypewriterEffectSmoothDemo = dynamic(() => import("./components/CommonTypeWriter"), { ssr: false });
+const EarthGlobe = dynamic(() => import("./components/EarthGlobe"), {
+  ssr : false
+});
+const Navbar = dynamic(() => import("./components/Navbar"), { ssr: false });
+const BasicLayout = dynamic(() => import("./layout/basiclayout"), { ssr: false });
+const SocialMediaComponent = dynamic(() => import("./components/ui/social-media-component"), { ssr: false });
 import { socialMediaJson } from "./json/social-media-json";
-import ButtonCommon from "./components/button-common";
+const ButtonCommon = dynamic(() => import("./components/button-common"), {
+  ssr : false
+})
 import { AnimatedTooltip } from "./components/ui/animated-tooltip";
-import { FolderGit2, SquareUserRound, UserRound } from "lucide-react";
-import ThreeDCardDemo from "./common/3DCards";
-import MenuWrapper from "./components/menu-wrapper";
-import { TracingBeamDemo } from "./components/content-wrapper";
-import AboutMe from "./components/about-me";
-const ProjectPopupWrapper = React.lazy(
-  () => import("./components/project-popup-wrapper")
-);
+import { FolderGit2, SquareUserRound } from "lucide-react";
+const MenuWrapper = dynamic(() => import("./components/menu-wrapper"), {
+  ssr : false
+})
+const AboutMe = dynamic(()=> import('./components/about-me'), {ssr: false})
+const ProjectPopupWrapper = dynamic(() => import("./components/project-popup-wrapper"), {ssr : false});
 
 export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -85,7 +88,9 @@ export default function Home() {
           <Navbar onOpen={openMenuPopup}></Navbar>
         </div>
         <div className="">
-          <TypewriterEffectSmoothDemo wordArray={words} />
+          <React.Suspense fallback="Loading...">
+            <TypewriterEffectSmoothDemo wordArray={words} />
+          </React.Suspense>
         </div>
         <div className="absolute bottom-[2rem] right-0 left-0 mx-auto z-10 flex justify-between w-full lg:w-11/12  items-center">
           <div className="lg:w-4/12 w-4/12 mx-auto">

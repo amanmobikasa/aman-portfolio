@@ -6,6 +6,7 @@ import { cn } from "../utils/cn";
 import { SparklesPreview } from "../common/heading-sparkle";
 import { FlipWordsDemo } from "./heading-common";
 import { contactUsJson } from "../json/contact-us-json";
+import { motion } from "framer-motion";
 
 export function SignupFormDemo({handleSubmitDataToDB, isLoading, errorMessage, successMessage} : {handleSubmitDataToDB : (e: React.FormEvent<HTMLFormElement>, formData : any) => void; isLoading : boolean; errorMessage : string; successMessage : string}) {
   const [inputState, setInputState] = useState([]);
@@ -79,13 +80,13 @@ export function SignupFormDemo({handleSubmitDataToDB, isLoading, errorMessage, s
           type="submit"
         >
           
-          {isLoading ? "Sending Message..." : "Send Message"}<span className="animate-bounce-custom">&rarr;</span>
+          {isLoading ? "Sending Message" : "Send Message"}<span className="animate-bounce-custom">  &rarr;</span>
           <BottomGradient />
         </button>
 
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
         {errorMessage && <span className="text-red-500 text-center text-sm">{errorMessage}</span>}
-        {successMessage && <span className="text-green-500 text-center text-sm">{successMessage}</span>}
+        {successMessage && <motion.div initial={{opacity: 0, x : -100}} animate={{opacity: 1,  x: 0}} transition={{duration: 1, ease: "easeInOut"}}  className="text-white font-ubuntu text-center  flex justify-center bg-gradient-to-l from-[#222] to-blue-500 via-blue-800 w-10/12 mx-auto py-2 px-3 rounded-lg border-white border-[0.02rem] border-dashed"><span>{successMessage}</span></motion.div>}
 
       </form>
     </div>
