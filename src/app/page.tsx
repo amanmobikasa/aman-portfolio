@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { MultiStepLoaderDemo } from "./common/pop-over";
 // import { TypewriterEffectSmoothDemo } from "./components/CommonTypeWriter";
@@ -21,11 +21,15 @@ const MenuWrapper = dynamic(() => import("./components/menu-wrapper"), {
 })
 const AboutMe = dynamic(()=> import('./components/about-me'), {ssr: false})
 const ProjectPopupWrapper = dynamic(() => import("./components/project-popup-wrapper"), {ssr : false});
+import { useSoundFunc } from "./utils/use-sound-func";
+import useSound from "use-sound";
 
 export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [projectModal, setProjectModal] = useState<boolean>(false);
   const [aboutModal, setAboutModal] = useState<boolean>(false);
+  const {playNow, pauseNow, handleSetVolume} = useSoundFunc('/assets/audio/mouse-click.wav');
+  const [play, { pause, sound }] = useSound('/assets/audio/background-music.mp3', { volume : 0.6, loop : true });
 
   const words = [
     {
@@ -56,6 +60,28 @@ export default function Home() {
     setShowModal(true);
     setAboutModal(true);
   };
+
+  // play sound to overall webiste
+  useEffect(()=>{
+    const handlePlay = () => {
+      playNow();
+    }
+    play();
+    document.addEventListener('click', handlePlay);
+
+    return ()=> { 
+      document.removeEventListener('click', handlePlay);
+    }
+
+  },[playNow, window.onload])
+
+  useEffect(()=>{
+    play(); // play the bg music
+    console.log("useEffect")
+    // return () => {
+    //   pause();
+    // }
+  },[])
 
   return (
     <>
