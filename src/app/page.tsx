@@ -59,6 +59,7 @@ export default function Home() {
   const openAboutModal = () => {
     setShowModal(true);
     setAboutModal(true);
+    
   };
 
   // play sound to overall webiste
@@ -66,22 +67,16 @@ export default function Home() {
     const handlePlay = () => {
       playNow();
     }
-    play();
+    
+   play();
+
     document.addEventListener('click', handlePlay);
 
     return ()=> { 
       document.removeEventListener('click', handlePlay);
     }
+  },[playNow, play])
 
-  },[playNow, window.onload])
-
-  useEffect(()=>{
-    play(); // play the bg music
-    console.log("useEffect")
-    // return () => {
-    //   pause();
-    // }
-  },[])
 
   return (
     <>
