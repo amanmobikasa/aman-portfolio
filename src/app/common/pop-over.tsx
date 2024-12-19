@@ -17,23 +17,23 @@ interface MultiStepLoaderDemo {
 
 export function MultiStepLoaderDemo({children, onClose, onOpen} : MultiStepLoaderDemo) {
   const [loading, setLoading] = useState(()=> onOpen ? onOpen : false);
-  const {playNow,pauseNow} = useSoundFunc('/assets/audio/mouse-click.wav');
+  // const {playNow,pauseNow} = useSoundFunc('/assets/audio/mouse-click.wav');
 
   const handleClose = () => {
     setLoading(false);
     onClose(false);
   };
 
-  useEffect(()=>{
-      const handlePlay = () => {
-        playNow();
-      }
-    document.addEventListener('click', handlePlay)
-    return ()=> {
-      document.removeEventListener('click', handlePlay)
-    }
+  // useEffect(()=>{
+  //     const handlePlay = () => {
+  //       playNow();
+  //     }
+  //   document.addEventListener('click', handlePlay)
+  //   return ()=> {
+  //     document.removeEventListener('click', handlePlay)
+  //   }
 
-  },[playNow])
+  // },[playNow])
 
   return (
     <div className="w-full h-[100vh] bg-[#222] bg-opacity-75 backdrop-blur-xl  absolute top-0 left-0 z-[100] text-white overflow-y-auto overflow-x-hidden">

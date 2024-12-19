@@ -28,8 +28,8 @@ export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [projectModal, setProjectModal] = useState<boolean>(false);
   const [aboutModal, setAboutModal] = useState<boolean>(false);
-  const {playNow, pauseNow, handleSetVolume} = useSoundFunc('/assets/audio/mouse-click.wav');
-  const [play, { pause, sound }] = useSound('/assets/audio/background-music.mp3', { volume : 0.6, loop : true });
+  // const {playNow, pauseNow, handleSetVolume} = useSoundFunc('/assets/audio/mouse-click.wav');
+  // const [play, { pause, sound }] = useSound('/assets/audio/background-music.mp3', { volume : 0.6, loop : true });
 
   const words = [
     {
@@ -63,19 +63,19 @@ export default function Home() {
   };
 
   // play sound to overall webiste
-  useEffect(()=>{
-    const handlePlay = () => {
-      playNow();
-    }
+  // useEffect(()=>{
+  //   const handlePlay = () => {
+  //     playNow();
+  //   }
     
-   play();
+  //  play();
 
-    document.addEventListener('click', handlePlay);
+  //   document.addEventListener('click', handlePlay);
 
-    return ()=> { 
-      document.removeEventListener('click', handlePlay);
-    }
-  },[playNow, play])
+  //   return ()=> { 
+  //     document.removeEventListener('click', handlePlay);
+  //   }
+  // },[playNow, play])
 
 
   return (
